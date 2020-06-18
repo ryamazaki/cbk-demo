@@ -2,7 +2,7 @@
 pipeline {
     agent any
     //agent{ docker { image 'tariqbeans/node:latest'} }
-    environment{
+    environment {
         dockerHome = tool 'myDocker'
         PATH = "$dockerHome/bin:$PATH"
     }
@@ -11,7 +11,7 @@ pipeline {
             steps {
                 echo "Build"
                 echo "PATH - $PATH"
-                echo "dockerHome = $dockerHome"
+                echo "dockerHome - $dockerHome"
                 sh 'npm version'
             }
         }
