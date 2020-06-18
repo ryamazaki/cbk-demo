@@ -11,7 +11,7 @@ pipeline {
             steps {
                 echo "Build"
                 echo "PATH - $PATH"
-                echo "dockerHome - $dockerHome"
+                echo "dockerHome - ${dockerHome}"
                 sh 'npm version'
             }
         }
