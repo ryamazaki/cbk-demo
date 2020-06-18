@@ -1,35 +1,10 @@
-//Declarative format
 pipeline {
-    agent any
-    //agent{ docker { image 'tariqbeans/node:latest'} }
-    environment {
-        dockerHome = tool 'myDocker'
-        PATH = "$dockerHome/bin:$PATH"
-    }
+    agent { dockerfile true }
     stages {
-        stage('Build') {
-            steps {
-                echo "Build"
-                echo "PATH - $PATH"
-                sh 'docker --version'
-                
-            }
-        }
         stage('Test') {
             steps {
-                echo "Test"
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo "Deploy"
+                sh 'node --version'
             }
         }
     }
-    post {
-        always {
-            echo "I always run after post stages"
-        }
-    }
-    
 }
