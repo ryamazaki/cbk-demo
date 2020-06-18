@@ -11,7 +11,8 @@ pipeline {
             steps {
                 echo "Build"
                 echo "PATH - $PATH"
-                sh 'npm version'
+                sh 'docker --version'
+                
             }
         }
         stage('Test') {
