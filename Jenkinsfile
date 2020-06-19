@@ -19,7 +19,7 @@ pipeline {
             steps {
                 echo "Build Image"
                 script{
-                    dockerImage = docker.build("tariqbeans/cbk-demo")
+                    app = docker.build("tariqbeans/cbk-demo")
                 }
             }
         }
