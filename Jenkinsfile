@@ -28,7 +28,7 @@ pipeline {
                 echo "Push Image to DockerHub"
                 script {
                     docker.withRegistery('https://registry.hub.docker.com','dockerHub'){
-                        dockerImage.push();
+                        dockerImage.push("${env.BUILD_NUMBER}");
                         docker.push("latest")
                     }
                 }
