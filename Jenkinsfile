@@ -19,7 +19,7 @@ pipeline {
             steps {
                 echo "Build Image"
                 script{
-                    dockerImage = docker.build("tariqbeans/cbk-demo:1.0.0")
+                    dockerImage = docker.build("tariqbeans/cbk-demo")
                 }
             }
         }
@@ -28,8 +28,9 @@ pipeline {
                 echo "Push Image to DockerHub"
                 script {
                     docker.withRegistery("https://registry.hub.docker.com",'dockerHub'){
-                        dockerImage.push();
-                        docker.push("latest")
+                        dockerImage.push("${env.BUILD_NUMBER}")
+                        dockerImage.push("latest")
+                        
                     }
                 }
             }
