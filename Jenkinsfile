@@ -19,13 +19,18 @@ pipeline {
             steps {
                 echo "Build Image"
                 script{
-                    docker.build("tariqbeans/cbk-demo:1.0.0")
+                    dockerImage = docker.build("tariqbeans/cbk-demo:1.0.0")
                 }
             }
         }
         stage('Push Docker Image') {
             steps {
                 echo "Push Image to DockerHub"
+                script {
+                    docker.withRegistery('','dockerHub'){
+                    dockerImage.push();
+                    }
+                }
             }
         }
     }
