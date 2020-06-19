@@ -27,11 +27,12 @@ pipeline {
             steps {
                 echo "Push Image to DockerHub"
                 script {
-                    //docker.withRegistery('','dockerHub'){
-                        dockerImage.push("${env.BUILD_NUMBER}")
-                        dockerImage.push("latest")
-                        
-                    //}
+                    docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-cred') {
+                        app.push("${env.BUILD_NUMBER}")
+                        app.push("latest")
+        }
+                    
+                
                 }
             }
         }
