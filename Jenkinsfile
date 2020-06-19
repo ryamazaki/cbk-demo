@@ -27,8 +27,9 @@ pipeline {
             steps {
                 echo "Push Image to DockerHub"
                 script {
-                    docker.withRegistery('','dockerHub'){
-                    dockerImage.push();
+                    docker.withRegistery('https://registry.hub.docker.com','dockerHub'){
+                        dockerImage.push();
+                        docker.push("latest")
                     }
                 }
             }
