@@ -7,7 +7,7 @@ pipeline {
         PATH = "$dockerHome/bin:$PATH"
     }
     stages {
-        stage('Checkout') {
+        stage('Checkout from feature branch') {
             steps {
                 echo "Build"
                 echo "PATH - $PATH"
