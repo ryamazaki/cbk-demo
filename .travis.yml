@@ -2,4 +2,4 @@ sudo: required
 services:
     - docker
 before_install:
-    - docker build -t tariqbeans/cbk-demo -Dockerfile .
+    - docker build -t tariqbeans/cbk-demo -f Dockerfile .
