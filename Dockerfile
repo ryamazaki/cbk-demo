@@ -1,4 +1,5 @@
 FROM node:14.4-alpine
+EXPOSE 80
 
 WORKDIR /usr/app
 
