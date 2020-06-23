@@ -7,7 +7,7 @@ pipeline {
         PATH = "$dockerHome/bin:$PATH"
     }
     stages {
-        stage('Checkout from feature2 branch') {
+        stage('Checkout from feature branch') {
             steps {
                 echo "Build"
                 echo "PATH - $PATH"
@@ -29,7 +29,7 @@ pipeline {
                 script {
                     docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-cred') {
                         app.push("${env.BUILD_NUMBER}")
-                        app.push("latest")
+                        //app.push("latest")
         }
                     
                 
