@@ -29,7 +29,7 @@ pipeline {
                 script {
                     docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-cred') {
                         app.push("${env.BUILD_NUMBER}")
-                        app.push("latest")
+                        //app.push("latest")
         }
                     
                 
